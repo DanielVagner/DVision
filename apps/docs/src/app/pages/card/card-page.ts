@@ -25,32 +25,39 @@ export class CardPage {
 
   readonly variantCode = computed(
     () => `&lt;dv-card variant="${this.activeVariant()}"&gt;
-  &lt;div dvCardHeader&gt;
+  &lt;dv-card-header&gt;
+    &lt;small&gt;Kategorie&lt;/small&gt;
     &lt;h3&gt;Nazev karty&lt;/h3&gt;
-  &lt;/div&gt;
+  &lt;/dv-card-header&gt;
 
-  Obsah karty...
+  &lt;p&gt;Obsah karty...&lt;/p&gt;
 
-  &lt;div dvCardFooter&gt;
+  &lt;dv-card-footer&gt;
     &lt;button&gt;Potvrdit&lt;/button&gt;
-  &lt;/div&gt;
+  &lt;/dv-card-footer&gt;
 &lt;/dv-card&gt;`,
   );
 
   readonly slotCodeA =
     `&lt;dv-card&gt;\n` +
-    `  &lt;div <b>dvCardHeader</b>&gt;...&lt;/div&gt;\n` +
-    `  &lt;img <b>dvCardMedia</b> /&gt;\n` +
+    `  &lt;<b>dv-card-header</b>&gt;\n` +
+    `    &lt;small&gt;Kategorie&lt;/small&gt;\n` +
+    `    &lt;h3&gt;Nazev&lt;/h3&gt;\n` +
+    `  &lt;/<b>dv-card-header</b>&gt;\n` +
+    `  &lt;<b>dv-card-media</b>&gt;&lt;img /&gt;&lt;/<b>dv-card-media</b>&gt;\n` +
     `  &lt;p&gt;Obsah&lt;/p&gt;\n` +
-    `  &lt;div <b>dvCardFooter</b>&gt;...&lt;/div&gt;\n` +
+    `  &lt;<b>dv-card-footer</b>&gt;...&lt;/<b>dv-card-footer</b>&gt;\n` +
     `&lt;/dv-card&gt;`;
 
   readonly slotCodeB =
     `&lt;dv-card&gt;\n` +
-    `  &lt;img <b>dvCardMedia</b> /&gt;\n` +
-    `  &lt;div <b>dvCardHeader</b>&gt;...&lt;/div&gt;\n` +
+    `  &lt;<b>dv-card-media</b>&gt;&lt;img /&gt;&lt;/<b>dv-card-media</b>&gt;\n` +
+    `  &lt;<b>dv-card-header</b>&gt;\n` +
+    `    &lt;small&gt;Kategorie&lt;/small&gt;\n` +
+    `    &lt;h3&gt;Nazev&lt;/h3&gt;\n` +
+    `  &lt;/<b>dv-card-header</b>&gt;\n` +
     `  &lt;p&gt;Obsah&lt;/p&gt;\n` +
-    `  &lt;div <b>dvCardFooter</b>&gt;...&lt;/div&gt;\n` +
+    `  &lt;<b>dv-card-footer</b>&gt;...&lt;/<b>dv-card-footer</b>&gt;\n` +
     `&lt;/dv-card&gt;`;
 
   @ViewChild('liveCardRef') private liveCardRef?: ElementRef<HTMLElement>;

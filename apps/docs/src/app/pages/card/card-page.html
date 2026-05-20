@@ -32,17 +32,15 @@
         <div class="preview-box">
           <div class="preview-box__canvas">
             <dv-card [variant]="activeVariant()" class="demo-card">
-              <div dvCardHeader>
-                <p class="dv-demo__eyebrow">DVision UI</p>
-                <h3 class="dv-demo__title">Nazev karty</h3>
-              </div>
-              <p class="dv-demo__body">
-                Toto je obsah karty. Muze obsahovat libovolny Angular obsah — text, obrazky, tlacitka i formulare.
-              </p>
-              <div dvCardFooter>
+              <dv-card-header>
+                <small>DVision UI</small>
+                <h3>Nazev karty</h3>
+              </dv-card-header>
+              <p>Toto je obsah karty. Muze obsahovat libovolny Angular obsah — text, obrazky, tlacitka i formulare.</p>
+              <dv-card-footer>
                 <button class="dv-demo__btn dv-demo__btn--ghost">Zrusit</button>
                 <button class="dv-demo__btn dv-demo__btn--primary">Potvrdit</button>
-              </div>
+              </dv-card-footer>
             </dv-card>
           </div>
           <pre class="preview-box__code"><code [innerHTML]="variantCode()"></code></pre>
@@ -92,15 +90,17 @@
           <div class="preview-box__canvas">
             <div #liveCardRef>
               <dv-card variant="elevated" class="demo-card">
-                <div dvCardHeader>
-                  <p class="dv-demo__eyebrow">Flexibilni slot</p>
-                  <h3 class="dv-demo__title">Nazev karty</h3>
-                </div>
-                <img dvCardMedia src="https://picsum.photos/seed/dv20/600/240" alt="Krajina" />
-                <p class="dv-demo__body">Poradi slotu se meni — sleduj jak se prvky prohazuji.</p>
-                <div dvCardFooter>
+                <dv-card-header>
+                  <small>Flexibilni slot</small>
+                  <h3>Nazev karty</h3>
+                </dv-card-header>
+                <dv-card-media>
+                  <img src="https://picsum.photos/seed/dv20/600/240" alt="Krajina" />
+                </dv-card-media>
+                <p>Poradi slotu se meni — sleduj jak se prvky prohazuji.</p>
+                <dv-card-footer>
                   <button class="dv-demo__btn dv-demo__btn--primary">Zobrazit</button>
-                </div>
+                </dv-card-footer>
               </dv-card>
             </div>
           </div>
@@ -121,21 +121,21 @@
         <div class="preview-box">
           <div class="preview-box__canvas preview-box__canvas--row">
             <dv-card variant="elevated" class="demo-card">
-              <img dvCardMedia src="https://picsum.photos/seed/dv10/600/300" alt="Krajina" />
-              <div dvCardHeader>
-                <p class="dv-demo__eyebrow">Fotografie</p>
-                <h3 class="dv-demo__title">Horska krajina</h3>
-              </div>
-              <p class="dv-demo__body">Obrazek je vzdy uplne nahore bez paddingu.</p>
+              <dv-card-media><img src="https://picsum.photos/seed/dv10/600/300" alt="Krajina" /></dv-card-media>
+              <dv-card-header>
+                <small>Fotografie</small>
+                <h3>Horska krajina</h3>
+              </dv-card-header>
+              <p>Obrazek je vzdy uplne nahore bez paddingu.</p>
             </dv-card>
 
             <dv-card variant="outlined" class="demo-card">
-              <img dvCardMedia src="https://picsum.photos/seed/dv11/600/300" alt="Mesto" />
-              <div dvCardHeader>
-                <p class="dv-demo__eyebrow">Architektura</p>
-                <h3 class="dv-demo__title">Mestska scenerie</h3>
-              </div>
-              <p class="dv-demo__body">Variant outlined s obrazkem funguje stejne.</p>
+              <dv-card-media><img src="https://picsum.photos/seed/dv11/600/300" alt="Mesto" /></dv-card-media>
+              <dv-card-header>
+                <small>Architektura</small>
+                <h3>Mestska scenerie</h3>
+              </dv-card-header>
+              <p>Variant outlined s obrazkem funguje stejne.</p>
             </dv-card>
           </div>
         </div>
@@ -145,40 +145,40 @@
         <div class="preview-box">
           <div class="preview-box__canvas preview-box__canvas--row">
             <dv-card variant="elevated" class="demo-card">
-              <img dvCardMedia src="https://picsum.photos/seed/dv12/600/300" alt="Les" />
-              <div dvCardHeader>
-                <p class="dv-demo__eyebrow">Priroda</p>
-                <h3 class="dv-demo__title">Lesni stezka</h3>
-              </div>
-              <p class="dv-demo__body">Karta s patickou a dvema akcemi.</p>
-              <div dvCardFooter>
+              <dv-card-media><img src="https://picsum.photos/seed/dv12/600/300" alt="Les" /></dv-card-media>
+              <dv-card-header>
+                <small>Priroda</small>
+                <h3>Lesni stezka</h3>
+              </dv-card-header>
+              <p>Karta s patickou a dvema akcemi.</p>
+              <dv-card-footer>
                 <button class="dv-demo__btn dv-demo__btn--ghost">Sdilet</button>
                 <button class="dv-demo__btn dv-demo__btn--primary">Zobrazit</button>
-              </div>
+              </dv-card-footer>
             </dv-card>
 
             <dv-card variant="outlined" class="demo-card">
-              <img dvCardMedia src="https://picsum.photos/seed/dv13/600/300" alt="More" />
-              <div dvCardHeader>
-                <p class="dv-demo__eyebrow">Cestovani</p>
-                <h3 class="dv-demo__title">Modre more</h3>
-              </div>
-              <p class="dv-demo__body">Outlined varianta s obrazkem a jednim tlacitkem.</p>
-              <div dvCardFooter>
+              <dv-card-media><img src="https://picsum.photos/seed/dv13/600/300" alt="More" /></dv-card-media>
+              <dv-card-header>
+                <small>Cestovani</small>
+                <h3>Modre more</h3>
+              </dv-card-header>
+              <p>Outlined varianta s obrazkem a jednim tlacitkem.</p>
+              <dv-card-footer>
                 <button class="dv-demo__btn dv-demo__btn--primary">Otevrit</button>
-              </div>
+              </dv-card-footer>
             </dv-card>
           </div>
           <pre class="preview-box__code"><code>&lt;dv-card variant="elevated"&gt;
-  &lt;img dvCardMedia src="..." alt="..." /&gt;
-  &lt;div dvCardHeader&gt;
-    &lt;p&gt;Kategorie&lt;/p&gt;
+  &lt;dv-card-media&gt;&lt;img src="..." alt="..." /&gt;&lt;/dv-card-media&gt;
+  &lt;dv-card-header&gt;
+    &lt;small&gt;Kategorie&lt;/small&gt;
     &lt;h3&gt;Nazev&lt;/h3&gt;
-  &lt;/div&gt;
-  Popis obsahu...
-  &lt;div dvCardFooter&gt;
+  &lt;/dv-card-header&gt;
+  &lt;p&gt;Popis obsahu...&lt;/p&gt;
+  &lt;dv-card-footer&gt;
     &lt;button&gt;Akce&lt;/button&gt;
-  &lt;/div&gt;
+  &lt;/dv-card-footer&gt;
 &lt;/dv-card&gt;</code></pre>
         </div>
 
@@ -187,35 +187,35 @@
         <div class="preview-box">
           <div class="preview-box__canvas preview-box__canvas--row">
             <dv-card variant="elevated" class="demo-card">
-              <div dvCardHeader>
-                <p class="dv-demo__eyebrow">DVision UI</p>
-                <h3 class="dv-demo__title">Karta bez obrazku</h3>
-              </div>
-              <p class="dv-demo__body">Jednoducha karta s nadpisem a popisem. Zadna media, zadne tlacitka.</p>
+              <dv-card-header>
+                <small>DVision UI</small>
+                <h3>Karta bez obrazku</h3>
+              </dv-card-header>
+              <p>Jednoducha karta s nadpisem a popisem. Zadna media, zadne tlacitka.</p>
             </dv-card>
 
             <dv-card variant="elevated" class="demo-card">
-              <div dvCardHeader>
-                <p class="dv-demo__eyebrow">DVision UI</p>
-                <h3 class="dv-demo__title">Karta s akcemi</h3>
-              </div>
-              <p class="dv-demo__body">Stejna struktura, ale s patickou a dvema tlacitky pro volbu akce.</p>
-              <div dvCardFooter>
+              <dv-card-header>
+                <small>DVision UI</small>
+                <h3>Karta s akcemi</h3>
+              </dv-card-header>
+              <p>Stejna struktura, ale s patickou a dvema tlacitky pro volbu akce.</p>
+              <dv-card-footer>
                 <button class="dv-demo__btn dv-demo__btn--ghost">Zrusit</button>
                 <button class="dv-demo__btn dv-demo__btn--primary">Potvrdit</button>
-              </div>
+              </dv-card-footer>
             </dv-card>
           </div>
           <pre class="preview-box__code"><code>&lt;dv-card variant="elevated"&gt;
-  &lt;div dvCardHeader&gt;
-    &lt;p&gt;Kategorie&lt;/p&gt;
+  &lt;dv-card-header&gt;
+    &lt;small&gt;Kategorie&lt;/small&gt;
     &lt;h3&gt;Nazev&lt;/h3&gt;
-  &lt;/div&gt;
-  Popis obsahu...
-  &lt;div dvCardFooter&gt;
+  &lt;/dv-card-header&gt;
+  &lt;p&gt;Popis obsahu...&lt;/p&gt;
+  &lt;dv-card-footer&gt;
     &lt;button&gt;Zrusit&lt;/button&gt;
     &lt;button&gt;Potvrdit&lt;/button&gt;
-  &lt;/div&gt;
+  &lt;/dv-card-footer&gt;
 &lt;/dv-card&gt;</code></pre>
         </div>
       </section>
@@ -226,14 +226,14 @@
         <div class="card-grid">
           @for (v of variants; track v) {
           <dv-card [variant]="v">
-            <div dvCardHeader>
-              <p class="dv-demo__eyebrow">{{ v }}</p>
-              <h3 class="dv-demo__title">Nazev karty</h3>
-            </div>
-            <p class="dv-demo__body">Kratky popis obsahu.</p>
-            <div dvCardFooter>
+            <dv-card-header>
+              <small>{{ v }}</small>
+              <h3>Nazev karty</h3>
+            </dv-card-header>
+            <p>Kratky popis obsahu.</p>
+            <dv-card-footer>
               <button class="dv-demo__btn dv-demo__btn--primary">Akce</button>
-            </div>
+            </dv-card-footer>
           </dv-card>
           }
         </div>
@@ -271,24 +271,28 @@
           </tbody>
         </table>
 
-        <p class="doc-section__subtitle" style="margin-top: 20px">Direktivy</p>
+        <p class="doc-section__subtitle" style="margin-top: 20px">Sloty</p>
         <table class="api-table">
           <thead>
             <tr>
-              <th>Selektor</th>
+              <th>Element</th>
+              <th>Atribut</th>
               <th>Popis</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><code>[dvCardMedia]</code></td>
-              <td>Obrazek nebo video — flush, bez paddingu</td>
-            </tr>
-            <tr>
+              <td><code>dv-card-header</code></td>
               <td><code>[dvCardHeader]</code></td>
-              <td>Hlavicka — padding 16px 16px 0</td>
+              <td>Hlavicka — padding 16px</td>
             </tr>
             <tr>
+              <td><code>dv-card-media</code></td>
+              <td><code>[dvCardMedia]</code></td>
+              <td>Obrazek / video — flush, bez paddingu</td>
+            </tr>
+            <tr>
+              <td><code>dv-card-footer</code></td>
               <td><code>[dvCardFooter]</code></td>
               <td>Paticka s akcemi — flex row</td>
             </tr>

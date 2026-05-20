@@ -183,29 +183,8 @@ $breakpoint: 1100px;
   gap: 16px;
 }
 
-// ─── BEM: demo obsah uvnitr karty ─────────────────────────
+// ─── BEM: demo tlacitka uvnitr karty ─────────────────────────
 .dv-demo {
-  &__eyebrow {
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--dvision-primary);
-    margin-bottom: 4px;
-  }
-  &__title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--dvision-text);
-    margin: 0;
-  }
-  &__body {
-    font-size: 0.85rem;
-    color: var(--dvision-text-muted);
-    line-height: 1.6;
-    margin: 0;
-  }
-
   &__btn {
     padding: 7px 16px;
     border-radius: var(--dvision-radius-full);

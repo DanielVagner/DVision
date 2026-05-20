@@ -32,7 +32,9 @@
   }
 
   // Media is always flush — no padding, full width
+  // Element syntax: <dv-card-media><img /></dv-card-media>
   > .dv-card__media {
+    display: block;
     padding: 0;
     width: 100%;
     overflow: hidden;
@@ -46,8 +48,56 @@
     }
   }
 
+  // Attribute syntax: <img dvCardMedia /> — the img IS the slot element
+  > img.dv-card__media,
+  > video.dv-card__media {
+    width: 100%;
+    height: var(--dvision-card-media-height, 200px);
+    display: block;
+    object-fit: cover;
+  }
+
   > .dv-card__header {
+    display: block;
     padding: var(--dvision-card-header-padding, 16px);
+
+    > * {
+      margin: 0;
+    }
+
+    > small {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--dvision-primary);
+      margin-bottom: 2px;
+    }
+
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dvision-text);
+      line-height: 1.35;
+    }
+  }
+
+  // Remove double top-padding when body text directly follows header
+  > .dv-card__header + p {
+    padding-top: 0;
+  }
+
+  > p {
+    font-size: 0.875rem;
+    color: var(--dvision-text-muted);
+    line-height: 1.6;
+    margin: 0;
   }
 
   > .dv-card__footer {

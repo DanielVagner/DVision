@@ -44,9 +44,12 @@ describe('DvCardComponent', () => {
       template: `
         <dv-card>
           <img dvCardMedia src="test.jpg" alt="test" />
-          <div dvCardHeader>Header</div>
+          <dv-card-header
+            ><small>Cat</small>
+            <h3>Title</h3></dv-card-header
+          >
           <p>Body content</p>
-          <div dvCardFooter>Footer</div>
+          <dv-card-footer>Footer</dv-card-footer>
         </dv-card>
       `,
     })
@@ -92,10 +95,10 @@ describe('DvCardComponent', () => {
       ],
       template: `
         <dv-card>
-          <div dvCardHeader>Header first</div>
+          <dv-card-header><h3>Header first</h3></dv-card-header>
           <img dvCardMedia src="test.jpg" alt="test" />
           <p>Body</p>
-          <div dvCardFooter>Footer</div>
+          <dv-card-footer>Footer</dv-card-footer>
         </dv-card>
       `,
     })
