@@ -15,9 +15,25 @@ $breakpoint: 1100px;
   border-bottom: 1px solid var(--dvision-border);
 }
 
-.doc-page__module { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; color: var(--dvision-secondary); }
-.doc-page__title { font-size: 2rem; font-weight: 700; color: var(--dvision-text); letter-spacing: -0.5px; }
-.doc-page__desc { font-size: 0.95rem; color: var(--dvision-text-muted); line-height: 1.65; max-width: 560px; }
+.doc-page__module {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--dvision-secondary);
+}
+.doc-page__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dvision-text);
+  letter-spacing: -0.5px;
+}
+.doc-page__desc {
+  font-size: 0.95rem;
+  color: var(--dvision-text-muted);
+  line-height: 1.65;
+  max-width: 560px;
+}
 
 // ─── Layout ───────────────────────────────────────────────
 .doc-cols {
@@ -25,10 +41,17 @@ $breakpoint: 1100px;
   grid-template-columns: 3fr 2fr;
   gap: 40px;
   align-items: start;
-  @media (max-width: $breakpoint) { grid-template-columns: 1fr; }
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+  }
 }
 
-.doc-col--main { display: flex; flex-direction: column; gap: 48px; min-width: 0; }
+.doc-col--main {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  min-width: 0;
+}
 
 .doc-col--aside {
   position: sticky;
@@ -49,12 +72,28 @@ $breakpoint: 1100px;
   }
 }
 
-.doc-section { display: flex; flex-direction: column; gap: 16px; }
-.doc-section__title { font-size: 1.05rem; font-weight: 600; color: var(--dvision-text); }
-.doc-section__desc { font-size: 0.875rem; color: var(--dvision-text-muted); line-height: 1.65; }
+.doc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.doc-section__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dvision-text);
+}
+.doc-section__desc {
+  font-size: 0.875rem;
+  color: var(--dvision-text-muted);
+  line-height: 1.65;
+}
 
 // ─── Barevna paleta ───────────────────────────────────────
-.color-grid { display: flex; flex-direction: column; gap: 12px; }
+.color-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
 .color-row {
   display: grid;
@@ -87,12 +126,14 @@ $breakpoint: 1100px;
   position: relative;
   overflow: hidden;
 
-  &:hover { transform: scale(1.03); }
+  &:hover {
+    transform: scale(1.03);
+  }
 
   &__token {
     font-size: 0.58rem;
     font-family: var(--dvision-font-mono);
-    color: rgba(255,255,255,0.75);
+    color: rgba(255, 255, 255, 0.75);
     line-height: 1.2;
     word-break: break-all;
   }
@@ -100,7 +141,7 @@ $breakpoint: 1100px;
   &__name {
     font-size: 0.65rem;
     font-weight: 600;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
@@ -108,7 +149,9 @@ $breakpoint: 1100px;
   // Subtle varianta — tmavsi text pro svetle pozadi
   &--subtle {
     .swatch__token,
-    .swatch__name { color: rgba(0,0,0,0.45); }
+    .swatch__name {
+      color: rgba(0, 0, 0, 0.45);
+    }
   }
 }
 
@@ -135,12 +178,23 @@ $breakpoint: 1100px;
     gap: 2px;
   }
 
-  &__label { font-size: 0.78rem; font-weight: 600; color: var(--dvision-text); }
-  &__token { font-size: 0.68rem; color: var(--dvision-text-muted); }
+  &__label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--dvision-text);
+  }
+  &__token {
+    font-size: 0.68rem;
+    color: var(--dvision-text-muted);
+  }
 }
 
 // ─── Tokens list (radius, shadow, spacing) ────────────────
-.token-list { display: flex; flex-direction: column; gap: 10px; }
+.token-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 .token-row {
   display: flex;
@@ -153,10 +207,16 @@ $breakpoint: 1100px;
     gap: 2px;
     min-width: 0;
 
-    code { font-size: 0.75rem; color: var(--dvision-primary); }
+    code {
+      font-size: 0.75rem;
+      color: var(--dvision-primary);
+    }
   }
 
-  &__value { font-size: 0.72rem; color: var(--dvision-text-muted); }
+  &__value {
+    font-size: 0.72rem;
+    color: var(--dvision-text-muted);
+  }
 }
 
 .radius-preview {
@@ -171,7 +231,10 @@ $breakpoint: 1100px;
   background: var(--dvision-surface);
   border-radius: var(--dvision-radius-sm);
   padding: 14px 16px;
-  code { font-size: 0.75rem; color: var(--dvision-text-muted); }
+  code {
+    font-size: 0.75rem;
+    color: var(--dvision-text-muted);
+  }
 }
 
 .spacing-preview {
@@ -209,5 +272,7 @@ $breakpoint: 1100px;
     word-break: break-word;
   }
 
-  tr:hover td { background: var(--dvision-bg); }
+  tr:hover td {
+    background: var(--dvision-bg);
+  }
 }

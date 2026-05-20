@@ -1,2 +1,2 @@
-npx lint-staged
-npx nx affected -t test --passWithNoTests
+node_modules/.bin/lint-staged
+node_modules/.bin/nx affected -t test --passWithNoTests

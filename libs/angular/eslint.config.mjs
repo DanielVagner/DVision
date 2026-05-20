@@ -11,7 +11,10 @@ export default [
       '@nx/dependency-checks': [
         'error',
         {
-          ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs,ts,cts,mts}'],
+          ignoredFiles: [
+            '{projectRoot}/eslint.config.{js,cjs,mjs,ts,cts,mts}',
+            '{projectRoot}/vite.config.{js,cjs,mjs,ts,cts,mts}',
+          ],
         },
       ],
     },
@@ -26,7 +29,7 @@ export default [
         'error',
         {
           type: 'attribute',
-          prefix: 'lib',
+          prefix: 'dv',
           style: 'camelCase',
         },
       ],
@@ -34,15 +37,21 @@ export default [
         'error',
         {
           type: 'element',
-          prefix: 'lib',
+          prefix: 'dv',
           style: 'kebab-case',
         },
       ],
     },
   },
   {
+    files: ['**/*.spec.ts'],
+    rules: {
+      '@angular-eslint/component-selector': 'off',
+      '@angular-eslint/directive-selector': 'off',
+    },
+  },
+  {
     files: ['**/*.html'],
-    // Override or add rules here
     rules: {},
   },
 ];

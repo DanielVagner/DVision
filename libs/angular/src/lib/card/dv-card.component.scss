@@ -29,7 +29,8 @@
   &__media {
     width: 100%;
     overflow: hidden;
-    img, video {
+    img,
+    video {
       width: 100%;
       display: block;
       object-fit: cover;

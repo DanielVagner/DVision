@@ -4,10 +4,10 @@ export const appRoutes: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: 'theming' },
   {
     path: 'theming',
-    loadComponent: () => import('./pages/theming/theming-page').then((m) => m.ThemingPage),
+    loadComponent: () => import('./pages/theming/theming-page').then(m => m.ThemingPage),
   },
   {
     path: 'components/card',
-    loadComponent: () => import('./pages/card/card-page').then((m) => m.CardPage),
+    loadComponent: () => import('./pages/card/card-page').then(m => m.CardPage),
   },
 ];

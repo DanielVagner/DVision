@@ -28,7 +28,9 @@ $breakpoint: 1100px;
   font-weight: 700;
   color: var(--dvision-text);
   letter-spacing: -0.5px;
-  @media (max-width: 480px) { font-size: 1.5rem; }
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 }
 
 .doc-page__desc {
@@ -44,7 +46,9 @@ $breakpoint: 1100px;
   grid-template-columns: 3fr 2fr;
   gap: 40px;
   align-items: start;
-  @media (max-width: $breakpoint) { grid-template-columns: 1fr; }
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .doc-col--main {
@@ -66,9 +70,17 @@ $breakpoint: 1100px;
 }
 
 // ─── Sekce ────────────────────────────────────────────────
-.doc-section { display: flex; flex-direction: column; gap: 16px; }
+.doc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-.doc-section__title { font-size: 1.05rem; font-weight: 600; color: var(--dvision-text); }
+.doc-section__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dvision-text);
+}
 
 .doc-section__subtitle {
   font-size: 0.72rem;
@@ -78,10 +90,18 @@ $breakpoint: 1100px;
   color: var(--dvision-text-disabled);
 }
 
-.doc-section__desc { font-size: 0.875rem; color: var(--dvision-text-muted); line-height: 1.65; }
+.doc-section__desc {
+  font-size: 0.875rem;
+  color: var(--dvision-text-muted);
+  line-height: 1.65;
+}
 
 // ─── Variant switcher ─────────────────────────────────────
-.variant-switcher { display: flex; gap: 8px; flex-wrap: wrap; }
+.variant-switcher {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 
 .variant-btn {
   padding: 6px 16px;
@@ -93,8 +113,16 @@ $breakpoint: 1100px;
   font-family: var(--dvision-font);
   cursor: pointer;
   transition: all 150ms ease;
-  &:hover { border-color: var(--dvision-primary); color: var(--dvision-primary); }
-  &.is-active { background: var(--dvision-primary); border-color: var(--dvision-primary); color: #fff; font-weight: 600; }
+  &:hover {
+    border-color: var(--dvision-primary);
+    color: var(--dvision-primary);
+  }
+  &.is-active {
+    background: var(--dvision-primary);
+    border-color: var(--dvision-primary);
+    color: #fff;
+    font-weight: 600;
+  }
 }
 
 // ─── Preview box ──────────────────────────────────────────
@@ -117,7 +145,9 @@ $breakpoint: 1100px;
       align-items: flex-start;
     }
 
-    @media (max-width: 480px) { padding: 24px 16px; }
+    @media (max-width: 480px) {
+      padding: 24px 16px;
+    }
   }
 
   &__code {
@@ -130,7 +160,10 @@ $breakpoint: 1100px;
   }
 }
 
-.demo-card { width: 100%; max-width: 300px; }
+.demo-card {
+  width: 100%;
+  max-width: 300px;
+}
 
 // ─── Example label ────────────────────────────────────────
 .example-label {
@@ -159,8 +192,18 @@ $breakpoint: 1100px;
     color: var(--dvision-primary);
     margin-bottom: 4px;
   }
-  &__title { font-size: 0.95rem; font-weight: 600; color: var(--dvision-text); margin: 0; }
-  &__body { font-size: 0.85rem; color: var(--dvision-text-muted); line-height: 1.6; margin: 0; }
+  &__title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--dvision-text);
+    margin: 0;
+  }
+  &__body {
+    font-size: 0.85rem;
+    color: var(--dvision-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
 
   &__btn {
     padding: 7px 16px;
@@ -172,9 +215,18 @@ $breakpoint: 1100px;
     border: none;
     transition: opacity 150ms;
     line-height: 1;
-    &:hover { opacity: 0.85; }
-    &--primary { background: var(--dvision-primary); color: var(--dvision-primary-text); }
-    &--ghost { background: transparent; color: var(--dvision-primary); border: 1px solid var(--dvision-border); }
+    &:hover {
+      opacity: 0.85;
+    }
+    &--primary {
+      background: var(--dvision-primary);
+      color: var(--dvision-primary-text);
+    }
+    &--ghost {
+      background: transparent;
+      color: var(--dvision-primary);
+      border: 1px solid var(--dvision-border);
+    }
   }
 }
 
@@ -205,5 +257,7 @@ $breakpoint: 1100px;
     word-break: break-word;
   }
 
-  tr:hover td { background: var(--dvision-bg); }
+  tr:hover td {
+    background: var(--dvision-bg);
+  }
 }

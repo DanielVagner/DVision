@@ -13,15 +13,19 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class App {
   private readonly doc = inject(DOCUMENT);
+  private readonly router = inject(Router);
 
   sidebarOpen = signal(false);
   sidebarCollapsed = signal(
-    this.doc.defaultView?.localStorage.getItem('dv-sidebar') === 'collapsed'
+    this.doc.defaultView?.localStorage.getItem('dv-sidebar') === 'collapsed',
   );
 
-  constructor(router: Router) {
-    router.events
-      .pipe(filter((e) => e instanceof NavigationEnd), takeUntilDestroyed())
+  constructor() {
+    this.router.events
+      .pipe(
+        filter(e => e instanceof NavigationEnd),
+        takeUntilDestroyed(),
+      )
       .subscribe(() => this.sidebarOpen.set(false));
   }
 

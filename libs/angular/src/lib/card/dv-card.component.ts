@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ContentChild,
-  input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChild, input } from '@angular/core';
 import { DvCardHeaderDirective } from './dv-card-header.directive';
 import { DvCardFooterDirective } from './dv-card-footer.directive';
 import { DvCardMediaDirective } from './dv-card-media.directive';

@@ -11,12 +11,7 @@ import {
   selector: 'docs-card-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    DvCardComponent,
-    DvCardHeaderDirective,
-    DvCardFooterDirective,
-    DvCardMediaDirective,
-  ],
+  imports: [DvCardComponent, DvCardHeaderDirective, DvCardFooterDirective, DvCardMediaDirective],
   templateUrl: './card-page.html',
   styleUrl: './card-page.scss',
 })

@@ -1,12 +1,15 @@
-@use '../../../libs/angular/src/theme/dvision.theme';
+@use "../../../libs/angular/src/theme/dvision.theme";
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: var(--dvision-font);
   background: var(--dvision-bg);
@@ -19,7 +22,9 @@ html, body {
 a {
   color: var(--dvision-primary);
   text-decoration: none;
-  &:hover { text-decoration: underline; }
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 code {
@@ -52,5 +57,7 @@ pre {
 
 // Plynuly prechod barev pri zmene tematu
 body {
-  transition: background 250ms ease, color 250ms ease;
+  transition:
+    background 250ms ease,
+    color 250ms ease;
 }
