@@ -3,13 +3,13 @@
     <p class="doc-page__module">Components</p>
     <h1 class="doc-page__title">Card</h1>
     <p class="doc-page__desc">
-      Universalni obsahovy kontejner. Podporuje tri vizualni varianty a volitelne sekce:
+      Universalni obsahovy kontejner. Podporuje tri vizualni varianty a volitelne sekce —
       <code>dvCardMedia</code>
       ,
       <code>dvCardHeader</code>
       ,
       <code>dvCardFooter</code>
-      .
+      . Poradi sekci je zcela na tobe, skladas je jak chces.
     </p>
   </header>
 
@@ -45,17 +45,65 @@
               </div>
             </dv-card>
           </div>
-          <pre class="preview-box__code"><code>&lt;dv-card variant="{{ activeVariant() }}"&gt;
-  &lt;div dvCardHeader&gt;
-    &lt;h3&gt;Nazev karty&lt;/h3&gt;
-  &lt;/div&gt;
+          <pre class="preview-box__code"><code [innerHTML]="variantCode()"></code></pre>
+        </div>
+      </section>
 
-  Obsah karty...
+      <!-- Flexibilni poradi slotu -->
+      <section class="doc-section">
+        <h2 class="doc-section__title">Flexibilni poradi</h2>
+        <p class="doc-section__desc">
+          Sloty nemas zadne pevne poradi. Pis je v sablone v libovolnem poradi — karta presne tak vyrenderuje.
+        </p>
 
-  &lt;div dvCardFooter&gt;
-    &lt;button&gt;Potvrdit&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/dv-card&gt;</code></pre>
+        <!-- Animovany diagram -->
+        <div class="slot-stage">
+          <div class="slot-diagram" [class.is-swapped]="slotsSwapped()">
+            <div class="slot-block slot-block--header">
+              <span class="slot-block__pill">dvCardHeader</span>
+              <span class="slot-block__label">Nadpis, meta</span>
+            </div>
+            <div class="slot-block slot-block--media">
+              <span class="slot-block__pill">dvCardMedia</span>
+              <span class="slot-block__label">Obrazek</span>
+            </div>
+            <div class="slot-block slot-block--body">
+              <span class="slot-block__pill slot-block__pill--neutral">body</span>
+              <span class="slot-block__label">Obsah karty</span>
+            </div>
+            <div class="slot-block slot-block--footer">
+              <span class="slot-block__pill slot-block__pill--neutral">dvCardFooter</span>
+              <span class="slot-block__label">Akce</span>
+            </div>
+          </div>
+
+          <div class="slot-code" [class.is-swapped]="slotsSwapped()">
+            <div class="slot-code__version slot-code__version--a">
+              <pre><code [innerHTML]="slotCodeA"></code></pre>
+            </div>
+            <div class="slot-code__version slot-code__version--b">
+              <pre><code [innerHTML]="slotCodeB"></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ziva karta — sloty se fyzicky prohazuji (FLIP animace) -->
+        <div class="preview-box">
+          <div class="preview-box__canvas">
+            <div #liveCardRef>
+              <dv-card variant="elevated" class="demo-card">
+                <div dvCardHeader>
+                  <p class="dv-demo__eyebrow">Flexibilni slot</p>
+                  <h3 class="dv-demo__title">Nazev karty</h3>
+                </div>
+                <img dvCardMedia src="https://picsum.photos/seed/dv20/600/240" alt="Krajina" />
+                <p class="dv-demo__body">Poradi slotu se meni — sleduj jak se prvky prohazuji.</p>
+                <div dvCardFooter>
+                  <button class="dv-demo__btn dv-demo__btn--primary">Zobrazit</button>
+                </div>
+              </dv-card>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -64,7 +112,8 @@
         <h2 class="doc-section__title">S obrazkem</h2>
         <p class="doc-section__desc">
           <code>dvCardMedia</code>
-          se vzdy zobrazi uplne nahore bez paddingu — primo ke krajum karty. Header a obsah maji vlastni padding nize.
+          je vzdy flush — bez paddingu, primo ke krajum karty. Poradi vsak urcujes ty: media muze byt na zacatku,
+          uprostred, nebo kdekoli jinde.
         </p>
 
         <!-- Jen obrazek + titulek -->
@@ -233,15 +282,15 @@
           <tbody>
             <tr>
               <td><code>[dvCardMedia]</code></td>
-              <td>Obrazek nebo video — vzdy uplne nahore</td>
+              <td>Obrazek nebo video — flush, bez paddingu</td>
             </tr>
             <tr>
               <td><code>[dvCardHeader]</code></td>
-              <td>Hlavicka pod media</td>
+              <td>Hlavicka — padding 16px 16px 0</td>
             </tr>
             <tr>
               <td><code>[dvCardFooter]</code></td>
-              <td>Paticka s akcemi</td>
+              <td>Paticka s akcemi — flex row</td>
             </tr>
           </tbody>
         </table>
@@ -283,8 +332,12 @@
               <td><code>--dvision-shadow-lg</code></td>
             </tr>
             <tr>
+              <td><code>--dvision-card-media-height</code></td>
+              <td><code>200px</code></td>
+            </tr>
+            <tr>
               <td><code>--dvision-card-header-padding</code></td>
-              <td><code>16px 16px 0</code></td>
+              <td><code>16px</code></td>
             </tr>
             <tr>
               <td><code>--dvision-card-content-padding</code></td>

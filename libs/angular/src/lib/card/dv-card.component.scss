@@ -26,31 +26,31 @@
     border: 1px solid var(--dvision-card-border, var(--dvision-border, #cac4d0));
   }
 
-  &__media {
+  // Default padding for any direct child element
+  > * {
+    padding: var(--dvision-card-content-padding, 16px);
+  }
+
+  // Media is always flush — no padding, full width
+  > .dv-card__media {
+    padding: 0;
     width: 100%;
     overflow: hidden;
+
     img,
     video {
       width: 100%;
+      height: var(--dvision-card-media-height, 200px);
       display: block;
       object-fit: cover;
     }
   }
 
-  &__header {
-    padding: var(--dvision-card-header-padding, 16px 16px 0);
+  > .dv-card__header {
+    padding: var(--dvision-card-header-padding, 16px);
   }
 
-  // Header primo po media dostane vetsi top padding pro odchylku od obrazku
-  &__media + &__header {
-    padding-top: var(--dvision-card-header-after-media-padding, 14px);
-  }
-
-  &__content {
-    padding: var(--dvision-card-content-padding, 16px);
-  }
-
-  &__footer {
+  > .dv-card__footer {
     padding: var(--dvision-card-footer-padding, 8px 16px 16px);
     display: flex;
     align-items: center;

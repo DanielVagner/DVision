@@ -45,7 +45,7 @@ describe('DvCardComponent', () => {
         <dv-card>
           <img dvCardMedia src="test.jpg" alt="test" />
           <div dvCardHeader>Header</div>
-          Body content
+          <p>Body content</p>
           <div dvCardFooter>Footer</div>
         </dv-card>
       `,
@@ -60,24 +60,61 @@ describe('DvCardComponent', () => {
       fixture.detectChanges();
     });
 
-    it('renders media slot', () => {
+    it('applies dv-card__media class to the media element', () => {
       const media = fixture.debugElement.query(By.css('.dv-card__media'));
       expect(media).toBeTruthy();
     });
 
-    it('renders header slot', () => {
+    it('applies dv-card__header class to the header element', () => {
       const header = fixture.debugElement.query(By.css('.dv-card__header'));
       expect(header).toBeTruthy();
     });
 
-    it('renders content slot', () => {
-      const content = fixture.debugElement.query(By.css('.dv-card__content'));
-      expect(content).toBeTruthy();
-    });
-
-    it('renders footer slot', () => {
+    it('applies dv-card__footer class to the footer element', () => {
       const footer = fixture.debugElement.query(By.css('.dv-card__footer'));
       expect(footer).toBeTruthy();
+    });
+
+    it('renders body content', () => {
+      const body = fixture.debugElement.query(By.css('p'));
+      expect(body.nativeElement.textContent.trim()).toBe('Body content');
+    });
+  });
+
+  describe('flexible slot ordering', () => {
+    @Component({
+      standalone: true,
+      imports: [
+        DvCardComponent,
+        DvCardHeaderDirective,
+        DvCardFooterDirective,
+        DvCardMediaDirective,
+      ],
+      template: `
+        <dv-card>
+          <div dvCardHeader>Header first</div>
+          <img dvCardMedia src="test.jpg" alt="test" />
+          <p>Body</p>
+          <div dvCardFooter>Footer</div>
+        </dv-card>
+      `,
+    })
+    class ReorderedHostComponent {}
+
+    beforeEach(async () => {
+      await TestBed.configureTestingModule({
+        imports: [ReorderedHostComponent],
+      }).compileComponents();
+    });
+
+    it('renders header before media when written that way', () => {
+      const fixture = TestBed.createComponent(ReorderedHostComponent);
+      fixture.detectChanges();
+      const card = fixture.nativeElement.querySelector('.dv-card');
+      const children = Array.from(card.children) as HTMLElement[];
+      const headerIdx = children.findIndex(el => el.classList.contains('dv-card__header'));
+      const mediaIdx = children.findIndex(el => el.classList.contains('dv-card__media'));
+      expect(headerIdx).toBeLessThan(mediaIdx);
     });
   });
 
@@ -85,7 +122,7 @@ describe('DvCardComponent', () => {
     @Component({
       standalone: true,
       imports: [DvCardComponent],
-      template: `<dv-card>Just content</dv-card>`,
+      template: `<dv-card><p>Just content</p></dv-card>`,
     })
     class MinimalHostComponent {}
 

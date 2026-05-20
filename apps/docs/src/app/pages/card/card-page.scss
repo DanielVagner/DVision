@@ -138,6 +138,7 @@ $breakpoint: 1100px;
     align-items: flex-start;
     justify-content: center;
     min-height: 240px;
+    overflow: hidden;
 
     &--row {
       gap: 20px;
@@ -226,6 +227,162 @@ $breakpoint: 1100px;
       background: transparent;
       color: var(--dvision-primary);
       border: 1px solid var(--dvision-border);
+    }
+  }
+}
+
+// ─── Slot animation diagram ───────────────────────────────
+$sb-h: 54px;
+$sb-gap: 10px;
+$sb-swap: $sb-h + $sb-gap; // 64px
+
+.slot-stage {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.slot-diagram {
+  position: relative;
+  height: 4 * $sb-h + 3 * $sb-gap;
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.slot-block {
+  position: absolute;
+  width: 100%;
+  height: $sb-h;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  transition: transform 680ms cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 1;
+
+  &__pill {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 100px;
+    background: var(--dvision-primary);
+    color: var(--dvision-primary-text);
+    white-space: nowrap;
+    font-family: var(--dvision-font-mono);
+
+    &--neutral {
+      background: var(--dvision-surface-alt);
+      color: var(--dvision-text-muted);
+      border: 1px solid var(--dvision-border);
+    }
+  }
+
+  &__label {
+    font-size: 0.75rem;
+    color: var(--dvision-text-muted);
+  }
+
+  &--header {
+    top: 0;
+    background: var(--dvision-primary-subtle);
+    border: 1px solid var(--dvision-primary);
+    z-index: 2;
+  }
+
+  &--media {
+    top: $sb-swap;
+    background: var(--dvision-surface-alt);
+    border: 1px solid var(--dvision-border);
+    z-index: 2;
+
+    .slot-block__pill {
+      background: var(--dvision-secondary, var(--dvision-primary));
+      color: var(--dvision-primary-text);
+    }
+  }
+
+  &--body {
+    top: 2 * $sb-swap;
+    background: var(--dvision-surface-alt);
+    border: 1px solid var(--dvision-border);
+    z-index: 1;
+  }
+
+  &--footer {
+    top: 3 * $sb-swap;
+    background: var(--dvision-surface-alt);
+    border: 1px solid var(--dvision-border);
+    z-index: 1;
+  }
+}
+
+.slot-diagram.is-swapped {
+  .slot-block--header {
+    transform: translateY($sb-swap) translateX(-10px);
+  }
+
+  .slot-block--media {
+    transform: translateY(-$sb-swap) translateX(10px);
+  }
+}
+
+// Code panel alongside diagram
+.slot-code {
+  flex: 1;
+  min-width: 220px;
+  position: relative;
+  height: 4 * $sb-h + 3 * $sb-gap;
+
+  pre {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    background: var(--dvision-surface-alt);
+    border: 1px solid var(--dvision-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--dvision-text-muted);
+    font-family: var(--dvision-font-mono);
+    overflow: hidden;
+    transition: opacity 400ms ease;
+
+    b {
+      color: var(--dvision-primary);
+      font-weight: 600;
+    }
+  }
+
+  &__version {
+    position: absolute;
+    inset: 0;
+    transition:
+      opacity 400ms ease,
+      transform 400ms ease;
+
+    &--a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &--b {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+
+  &.is-swapped {
+    .slot-code__version--a {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    .slot-code__version--b {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
