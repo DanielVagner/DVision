@@ -1,0 +1,141 @@
+<div class="doc-page">
+
+  <header class="doc-page__header">
+    <p class="doc-page__module">Foundation</p>
+    <h1 class="doc-page__title">Theming</h1>
+    <p class="doc-page__desc">
+      Vsechny DVision komponenty pouzivaji vyhradne CSS custom properties s prefixem
+      <code>--dvision-*</code>. Pridej <code>class="dvision"</code> na <code>&lt;body&gt;</code>
+      a premen libovolny token — zadna komponenta nema barvu natvrdo.
+    </p>
+  </header>
+
+  <div class="doc-cols">
+    <div class="doc-col--main">
+
+      <!-- Jak pouzit -->
+      <section class="doc-section">
+        <h2 class="doc-section__title">Jak pouzit</h2>
+        <pre><code>// styles.scss
+@use '@dvision/angular/theme/dvision.theme';
+
+// Vlastni tema — prepis libovolny token
+.dvision &#123;
+  --dvision-primary:   #0066cc;
+  --dvision-secondary: #00897b;
+  --dvision-danger:    #e53935;
+  --dvision-radius-md: 4px;
+&#125;</code></pre>
+      </section>
+
+      <!-- Barevna paleta -->
+      <section class="doc-section">
+        <h2 class="doc-section__title">Barevna paleta</h2>
+        <p class="doc-section__desc">
+          Kazda barva ma 4 varianty: zakladni, hover, subtle (pro pozadi) a text (kontrast).
+        </p>
+        <div class="color-grid">
+          @for (group of colorGroups; track group.label) {
+            <div class="color-row">
+              <span class="color-row__label">{{ group.label }}</span>
+              <div class="color-row__swatches">
+                <div class="swatch" [style.background]="'var(' + group.base + ')'">
+                  <span class="swatch__token">{{ group.base }}</span>
+                  <span class="swatch__name">base</span>
+                </div>
+                <div class="swatch" [style.background]="'var(' + group.hover + ')'">
+                  <span class="swatch__token">{{ group.hover }}</span>
+                  <span class="swatch__name">hover</span>
+                </div>
+                <div class="swatch swatch--subtle" [style.background]="'var(' + group.subtle + ')'">
+                  <span class="swatch__token">{{ group.subtle }}</span>
+                  <span class="swatch__name">subtle</span>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+
+      <!-- Povrchy a text -->
+      <section class="doc-section">
+        <h2 class="doc-section__title">Povrchy a text</h2>
+        <div class="surface-grid">
+          @for (t of surfaceTokens; track t.token) {
+            <div class="surface-swatch">
+              <div class="surface-swatch__preview"
+                [style.background]="'var(' + t.token + ')'"
+                [style.border]="t.value.includes('text') ? '1px solid var(--dvision-border)' : 'none'">
+              </div>
+              <div class="surface-swatch__info">
+                <span class="surface-swatch__label">{{ t.label }}</span>
+                <code class="surface-swatch__token">{{ t.token }}</code>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Pravy sloupec: radius, shadow, spacing, typo -->
+    <aside class="doc-col--aside">
+
+      <section class="doc-section">
+        <h2 class="doc-section__title">Zaobleni</h2>
+        <div class="token-list">
+          @for (r of radiusTokens; track r.token) {
+            <div class="token-row">
+              <div class="radius-preview" [style.border-radius]="r.px"></div>
+              <div class="token-row__info">
+                <code>{{ r.token }}</code>
+                <span class="token-row__value">{{ r.px }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-section__title">Stiny</h2>
+        <div class="token-list">
+          @for (s of shadowTokens; track s.token) {
+            <div class="shadow-preview" [style.box-shadow]="'var(' + s.token + ')'">
+              <code>{{ s.token }}</code>
+            </div>
+          }
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-section__title">Spacing</h2>
+        <div class="token-list">
+          @for (sp of spacingTokens; track sp.token) {
+            <div class="token-row">
+              <div class="spacing-preview" [style.width]="sp.px" [style.height]="'12px'"></div>
+              <div class="token-row__info">
+                <code>{{ sp.token }}</code>
+                <span class="token-row__value">{{ sp.px }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-section__title">Typografie</h2>
+        <table class="api-table">
+          <thead><tr><th>Token</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td><code>--dvision-font</code></td><td>Inter, system-ui</td></tr>
+            <tr><td><code>--dvision-font-mono</code></td><td>Fira Code</td></tr>
+            <tr><td><code>--dvision-font-size</code></td><td>16px</td></tr>
+            <tr><td><code>--dvision-line-height</code></td><td>1.5</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+    </aside>
+  </div>
+
+</div>

@@ -1,0 +1,208 @@
+<div class="doc-page">
+
+  <header class="doc-page__header">
+    <p class="doc-page__module">Components</p>
+    <h1 class="doc-page__title">Card</h1>
+    <p class="doc-page__desc">
+      Universalni obsahovy kontejner. Podporuje tri vizualni varianty a volitelne
+      sekce: <code>dvCardMedia</code>, <code>dvCardHeader</code>, <code>dvCardFooter</code>.
+    </p>
+  </header>
+
+  <div class="doc-cols">
+
+    <!-- ─── LEVY SLOUPEC ─────────────────────────────── -->
+    <div class="doc-col--main">
+
+      <!-- Varianty -->
+      <section class="doc-section">
+        <h2 class="doc-section__title">Varianty</h2>
+        <p class="doc-section__desc">Prepni variantu a sleduj zmenu live.</p>
+
+        <div class="variant-switcher">
+          @for (v of variants; track v) {
+            <button class="variant-btn" [class.is-active]="activeVariant() === v" (click)="activeVariant.set(v)">
+              {{ v }}
+            </button>
+          }
+        </div>
+
+        <div class="preview-box">
+          <div class="preview-box__canvas">
+            <dv-card [variant]="activeVariant()" class="demo-card">
+              <div dvCardHeader>
+                <p class="dv-demo__eyebrow">DVision UI</p>
+                <h3 class="dv-demo__title">Nazev karty</h3>
+              </div>
+              <p class="dv-demo__body">
+                Toto je obsah karty. Muze obsahovat libovolny Angular obsah —
+                text, obrazky, tlacitka i formulare.
+              </p>
+              <div dvCardFooter>
+                <button class="dv-demo__btn dv-demo__btn--ghost">Zrusit</button>
+                <button class="dv-demo__btn dv-demo__btn--primary">Potvrdit</button>
+              </div>
+            </dv-card>
+          </div>
+          <pre class="preview-box__code"><code>&lt;dv-card variant="{{ activeVariant() }}"&gt;
+  &lt;div dvCardHeader&gt;
+    &lt;h3&gt;Nazev karty&lt;/h3&gt;
+  &lt;/div&gt;
+
+  Obsah karty...
+
+  &lt;div dvCardFooter&gt;
+    &lt;button&gt;Potvrdit&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/dv-card&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- S obrazkem -->
+      <section class="doc-section">
+        <h2 class="doc-section__title">S obrazkem</h2>
+        <p class="doc-section__desc">
+          <code>dvCardMedia</code> se vzdy zobrazi uplne nahore bez paddingu — primo ke krajum karty.
+          Header a obsah maji vlastni padding nize.
+        </p>
+
+        <!-- Jen obrazek + titulek -->
+        <div class="example-label">Obrazek + hlavicka + popis</div>
+        <div class="preview-box">
+          <div class="preview-box__canvas preview-box__canvas--row">
+            <dv-card variant="elevated" class="demo-card">
+              <img dvCardMedia src="https://picsum.photos/seed/dv10/600/300" alt="Krajina" />
+              <div dvCardHeader>
+                <p class="dv-demo__eyebrow">Fotografie</p>
+                <h3 class="dv-demo__title">Horska krajina</h3>
+              </div>
+              <p class="dv-demo__body">Obrazek je vzdy uplne nahore bez paddingu.</p>
+            </dv-card>
+
+            <dv-card variant="outlined" class="demo-card">
+              <img dvCardMedia src="https://picsum.photos/seed/dv11/600/300" alt="Mesto" />
+              <div dvCardHeader>
+                <p class="dv-demo__eyebrow">Architektura</p>
+                <h3 class="dv-demo__title">Mestska scenerie</h3>
+              </div>
+              <p class="dv-demo__body">Variant outlined s obrazkem funguje stejne.</p>
+            </dv-card>
+          </div>
+        </div>
+
+        <!-- Obrazek + titulek + akce -->
+        <div class="example-label">Obrazek + hlavicka + popis + tlacitka</div>
+        <div class="preview-box">
+          <div class="preview-box__canvas preview-box__canvas--row">
+            <dv-card variant="elevated" class="demo-card">
+              <img dvCardMedia src="https://picsum.photos/seed/dv12/600/300" alt="Les" />
+              <div dvCardHeader>
+                <p class="dv-demo__eyebrow">Priroda</p>
+                <h3 class="dv-demo__title">Lesni stezka</h3>
+              </div>
+              <p class="dv-demo__body">Karta s patickou a dvema akcemi.</p>
+              <div dvCardFooter>
+                <button class="dv-demo__btn dv-demo__btn--ghost">Sdílet</button>
+                <button class="dv-demo__btn dv-demo__btn--primary">Zobrazit</button>
+              </div>
+            </dv-card>
+
+            <dv-card variant="filled" class="demo-card">
+              <img dvCardMedia src="https://picsum.photos/seed/dv13/600/300" alt="More" />
+              <div dvCardHeader>
+                <h3 class="dv-demo__title">Variant filled</h3>
+              </div>
+              <p class="dv-demo__body">Filled varianta s obrazkem a jednim tlacitkem.</p>
+              <div dvCardFooter>
+                <button class="dv-demo__btn dv-demo__btn--primary">Otevrit</button>
+              </div>
+            </dv-card>
+          </div>
+          <pre class="preview-box__code"><code>&lt;dv-card variant="elevated"&gt;
+  &lt;img dvCardMedia src="..." alt="..." /&gt;
+  &lt;div dvCardHeader&gt;
+    &lt;p&gt;Kategorie&lt;/p&gt;
+    &lt;h3&gt;Nazev&lt;/h3&gt;
+  &lt;/div&gt;
+  Popis obsahu...
+  &lt;div dvCardFooter&gt;
+    &lt;button&gt;Zrusit&lt;/button&gt;
+    &lt;button&gt;Potvrdit&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/dv-card&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Vsechny varianty -->
+      <section class="doc-section">
+        <h2 class="doc-section__title">Vsechny varianty</h2>
+        <div class="card-grid">
+          @for (v of variants; track v) {
+            <dv-card [variant]="v">
+              <div dvCardHeader>
+                <p class="dv-demo__eyebrow">{{ v }}</p>
+                <h3 class="dv-demo__title">Nazev karty</h3>
+              </div>
+              <p class="dv-demo__body">Kratky popis obsahu.</p>
+              <div dvCardFooter>
+                <button class="dv-demo__btn dv-demo__btn--primary">Akce</button>
+              </div>
+            </dv-card>
+          }
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ─── PRAVY SLOUPEC ─────────────────────────────── -->
+    <aside class="doc-col--aside">
+
+      <section class="doc-section">
+        <h2 class="doc-section__title">API</h2>
+
+        <p class="doc-section__subtitle">dv-card — inputs</p>
+        <table class="api-table">
+          <thead><tr><th>Input</th><th>Typ</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>variant</code></td>
+              <td><code>'elevated'<br>'filled'<br>'outlined'</code></td>
+              <td><code>'elevated'</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="doc-section__subtitle" style="margin-top: 20px">Direktivy</p>
+        <table class="api-table">
+          <thead><tr><th>Selektor</th><th>Popis</th></tr></thead>
+          <tbody>
+            <tr><td><code>[dvCardMedia]</code></td><td>Obrazek nebo video — vzdy uplne nahore</td></tr>
+            <tr><td><code>[dvCardHeader]</code></td><td>Hlavicka pod media</td></tr>
+            <tr><td><code>[dvCardFooter]</code></td><td>Paticka s akcemi</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section">
+        <h2 class="doc-section__title">Card tokeny</h2>
+        <p class="doc-section__desc">Premen pouze kartu bez dopadu na zbytek tematu.</p>
+        <table class="api-table">
+          <thead><tr><th>Token</th><th>Fallback</th></tr></thead>
+          <tbody>
+            <tr><td><code>--dvision-card-radius</code></td><td><code>--dvision-radius-md</code></td></tr>
+            <tr><td><code>--dvision-card-bg</code></td><td><code>--dvision-surface</code></td></tr>
+            <tr><td><code>--dvision-card-bg-filled</code></td><td><code>--dvision-surface-alt</code></td></tr>
+            <tr><td><code>--dvision-card-border</code></td><td><code>--dvision-border</code></td></tr>
+            <tr><td><code>--dvision-card-shadow</code></td><td><code>--dvision-shadow-md</code></td></tr>
+            <tr><td><code>--dvision-card-shadow-hover</code></td><td><code>--dvision-shadow-lg</code></td></tr>
+            <tr><td><code>--dvision-card-header-padding</code></td><td><code>16px 16px 0</code></td></tr>
+            <tr><td><code>--dvision-card-content-padding</code></td><td><code>16px</code></td></tr>
+            <tr><td><code>--dvision-card-footer-padding</code></td><td><code>8px 16px 16px</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+    </aside>
+  </div>
+
+</div>

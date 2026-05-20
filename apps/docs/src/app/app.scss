@@ -1,0 +1,255 @@
+$sidebar-width: 240px;
+$topbar-height: 56px;
+$mobile: 768px;
+
+// ─── Layout ───────────────────────────────────────────────
+.docs-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+// ─── Mobile topbar ────────────────────────────────────────
+.docs-topbar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $topbar-height;
+  background: var(--dvision-surface);
+  border-bottom: 1px solid var(--dvision-border);
+  padding: 0 16px;
+  align-items: center;
+  gap: 12px;
+  z-index: 100;
+  transition: background 250ms ease, border-color 250ms ease;
+
+  &__hamburger {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    color: var(--dvision-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--dvision-radius-sm);
+    flex-shrink: 0;
+    &:hover { background: var(--dvision-surface-alt); color: var(--dvision-text); }
+  }
+
+  &__logo {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dvision-text);
+  }
+
+  &__logo-dv { color: var(--dvision-primary); }
+
+  @media (max-width: $mobile) { display: flex; }
+}
+
+// ─── Mobile overlay ───────────────────────────────────────
+.docs-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 199;
+  backdrop-filter: blur(2px);
+  @media (max-width: $mobile) { display: block; }
+}
+
+// ─── Sidebar ──────────────────────────────────────────────
+.docs-sidebar {
+  width: $sidebar-width;
+  background: var(--dvision-surface);
+  border-right: 1px solid var(--dvision-border);
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition:
+    background 250ms ease,
+    border-color 250ms ease,
+    width 280ms cubic-bezier(.4, 0, .2, 1),
+    transform 300ms ease;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px 0 20px;
+    flex-shrink: 0;
+  }
+
+  &__top-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  &__logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dvision-text);
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &__logo-dv { color: var(--dvision-primary); }
+
+  &__collapse-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--dvision-border);
+    background: transparent;
+    color: var(--dvision-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--dvision-radius-sm);
+    transition: background 150ms, color 150ms;
+    flex-shrink: 0;
+
+    &:hover { background: var(--dvision-surface-alt); color: var(--dvision-text); }
+
+    @media (max-width: $mobile) { display: none; }
+  }
+
+  &__close {
+    display: none;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: var(--dvision-text-muted);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--dvision-radius-sm);
+    &:hover { background: var(--dvision-surface-alt); }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 12px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    a {
+      padding: 8px 12px;
+      border-radius: var(--dvision-radius-sm);
+      font-size: 0.9rem;
+      color: var(--dvision-text-muted);
+      transition: background 150ms, color 150ms;
+      display: block;
+      text-decoration: none;
+      &:hover { background: var(--dvision-surface-alt); color: var(--dvision-text); }
+      &.is-active { background: var(--dvision-surface-alt); color: var(--dvision-primary); font-weight: 600; }
+    }
+  }
+
+  &__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dvision-text-disabled);
+    padding: 0 12px 4px;
+    margin-top: 8px;
+    white-space: nowrap;
+  }
+
+  // Mobile — slide-in overlay
+  @media (max-width: $mobile) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    z-index: 200;
+    transform: translateX(-100%);
+
+    &.is-open {
+      transform: translateX(0);
+      box-shadow: var(--dvision-shadow-lg);
+    }
+
+    &__close { display: flex; }
+    &__collapse-btn { display: none; }
+  }
+}
+
+// ─── Desktop collapse stav ────────────────────────────────
+.docs-layout.sidebar-collapsed {
+  .docs-sidebar {
+    width: 0;
+    border-right-width: 0;
+
+    @media (max-width: $mobile) {
+      width: $sidebar-width; // mobilni chovani se nemeni
+    }
+  }
+
+  .docs-expand-btn {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+}
+
+// ─── Expand button (zobrazi se kdyz je sidebar schovan) ───
+.docs-expand-btn {
+  position: fixed;
+  top: 18px;
+  left: 12px;
+  z-index: 90;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--dvision-border);
+  background: var(--dvision-surface);
+  color: var(--dvision-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--dvision-radius-sm);
+  box-shadow: var(--dvision-shadow-sm);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-8px);
+  transition: opacity 200ms ease, transform 200ms ease, background 150ms, color 150ms;
+
+  &:hover { background: var(--dvision-surface-alt); color: var(--dvision-text); }
+
+  @media (max-width: $mobile) { display: none; }
+}
+
+// ─── Main content ─────────────────────────────────────────
+.docs-main {
+  flex: 1;
+  min-width: 0;
+  padding: 48px 56px 80px;
+  transition: padding 280ms cubic-bezier(.4, 0, .2, 1);
+
+  @media (max-width: $mobile) {
+    padding: calc(#{$topbar-height} + 32px) 24px 60px;
+  }
+
+  @media (max-width: 480px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

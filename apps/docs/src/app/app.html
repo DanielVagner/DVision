@@ -1,0 +1,55 @@
+<div class="docs-layout" [class.sidebar-collapsed]="sidebarCollapsed()">
+
+  <header class="docs-topbar">
+    <button class="docs-topbar__hamburger" (click)="sidebarOpen.set(true)" aria-label="Otevrit menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <span class="docs-topbar__logo"><span class="docs-topbar__logo-dv">DV</span>ision</span>
+    <docs-theme-toggle />
+  </header>
+
+  @if (sidebarOpen()) {
+    <div class="docs-overlay" (click)="sidebarOpen.set(false)"></div>
+  }
+
+  <aside class="docs-sidebar" [class.is-open]="sidebarOpen()">
+    <div class="docs-sidebar__top">
+      <div class="docs-sidebar__logo"><span class="docs-sidebar__logo-dv">DV</span>ision</div>
+      <div class="docs-sidebar__top-actions">
+        <docs-theme-toggle />
+        <button class="docs-sidebar__collapse-btn" (click)="toggleCollapse()" aria-label="Skryt panel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <button class="docs-sidebar__close" (click)="sidebarOpen.set(false)" aria-label="Zavrit menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="docs-sidebar__nav">
+      <p class="docs-sidebar__label">Foundation</p>
+      <a routerLink="/theming" routerLinkActive="is-active">Theming</a>
+
+      <p class="docs-sidebar__label" style="margin-top: 16px">Components</p>
+      <a routerLink="/components/card" routerLinkActive="is-active">Card</a>
+    </nav>
+  </aside>
+
+  <button class="docs-expand-btn" (click)="toggleCollapse()" aria-label="Zobrazit panel">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M9 18l6-6-6-6"/>
+    </svg>
+  </button>
+
+  <main class="docs-main">
+    <router-outlet />
+  </main>
+</div>

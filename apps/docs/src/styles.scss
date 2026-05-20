@@ -1,0 +1,56 @@
+@use '../../../libs/angular/src/theme/dvision.theme';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--dvision-font);
+  background: var(--dvision-bg);
+  color: var(--dvision-text);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--dvision-primary);
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+code {
+  font-family: var(--dvision-font-mono);
+  font-size: 0.875em;
+  background: var(--dvision-surface-alt);
+  padding: 2px 6px;
+  border-radius: var(--dvision-radius-sm);
+  color: var(--dvision-primary);
+}
+
+pre {
+  background: #071524;
+  color: #c8e6ff;
+  padding: 20px 24px;
+  border-radius: var(--dvision-radius-md);
+  overflow-x: auto;
+  font-family: var(--dvision-font-mono);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  border: 1px solid #1a3a55;
+
+  code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: 1em;
+  }
+}
+
+// Plynuly prechod barev pri zmene tematu
+body {
+  transition: background 250ms ease, color 250ms ease;
+}

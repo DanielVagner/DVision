@@ -1,0 +1,213 @@
+$aside-width: 300px;
+$breakpoint: 1100px;
+
+.doc-page {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.doc-page__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--dvision-border);
+}
+
+.doc-page__module { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; color: var(--dvision-secondary); }
+.doc-page__title { font-size: 2rem; font-weight: 700; color: var(--dvision-text); letter-spacing: -0.5px; }
+.doc-page__desc { font-size: 0.95rem; color: var(--dvision-text-muted); line-height: 1.65; max-width: 560px; }
+
+// ─── Layout ───────────────────────────────────────────────
+.doc-cols {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 40px;
+  align-items: start;
+  @media (max-width: $breakpoint) { grid-template-columns: 1fr; }
+}
+
+.doc-col--main { display: flex; flex-direction: column; gap: 48px; min-width: 0; }
+
+.doc-col--aside {
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dvision-border) transparent;
+
+  @media (max-width: $breakpoint) {
+    position: static;
+    max-height: none;
+    border-top: 1px solid var(--dvision-border);
+    padding-top: 40px;
+  }
+}
+
+.doc-section { display: flex; flex-direction: column; gap: 16px; }
+.doc-section__title { font-size: 1.05rem; font-weight: 600; color: var(--dvision-text); }
+.doc-section__desc { font-size: 0.875rem; color: var(--dvision-text-muted); line-height: 1.65; }
+
+// ─── Barevna paleta ───────────────────────────────────────
+.color-grid { display: flex; flex-direction: column; gap: 12px; }
+
+.color-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  align-items: center;
+
+  &__label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--dvision-text-muted);
+  }
+
+  &__swatches {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+}
+
+.swatch {
+  border-radius: var(--dvision-radius-sm);
+  height: 52px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: default;
+  transition: transform 150ms;
+  position: relative;
+  overflow: hidden;
+
+  &:hover { transform: scale(1.03); }
+
+  &__token {
+    font-size: 0.58rem;
+    font-family: var(--dvision-font-mono);
+    color: rgba(255,255,255,0.75);
+    line-height: 1.2;
+    word-break: break-all;
+  }
+
+  &__name {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  // Subtle varianta — tmavsi text pro svetle pozadi
+  &--subtle {
+    .swatch__token,
+    .swatch__name { color: rgba(0,0,0,0.45); }
+  }
+}
+
+// ─── Povrchy ──────────────────────────────────────────────
+.surface-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.surface-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__preview {
+    height: 48px;
+    border-radius: var(--dvision-radius-sm);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__label { font-size: 0.78rem; font-weight: 600; color: var(--dvision-text); }
+  &__token { font-size: 0.68rem; color: var(--dvision-text-muted); }
+}
+
+// ─── Tokens list (radius, shadow, spacing) ────────────────
+.token-list { display: flex; flex-direction: column; gap: 10px; }
+
+.token-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+
+    code { font-size: 0.75rem; color: var(--dvision-primary); }
+  }
+
+  &__value { font-size: 0.72rem; color: var(--dvision-text-muted); }
+}
+
+.radius-preview {
+  width: 36px;
+  height: 36px;
+  background: var(--dvision-primary);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.shadow-preview {
+  background: var(--dvision-surface);
+  border-radius: var(--dvision-radius-sm);
+  padding: 14px 16px;
+  code { font-size: 0.75rem; color: var(--dvision-text-muted); }
+}
+
+.spacing-preview {
+  background: var(--dvision-secondary);
+  opacity: 0.6;
+  border-radius: 2px;
+  flex-shrink: 0;
+  min-width: 4px;
+}
+
+// ─── API tabulka ──────────────────────────────────────────
+.api-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  table-layout: fixed;
+
+  th {
+    text-align: left;
+    padding: 9px 14px;
+    background: var(--dvision-surface-alt);
+    color: var(--dvision-text-disabled);
+    font-weight: 600;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    padding: 9px 14px;
+    border-top: 1px solid var(--dvision-border);
+    color: var(--dvision-text);
+    vertical-align: top;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  tr:hover td { background: var(--dvision-bg); }
+}

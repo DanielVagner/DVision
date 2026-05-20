@@ -1,0 +1,134 @@
+// DVision Theme
+// @use '@dvision/angular/theme/dvision.theme' do styles.scss
+// class="dvision" na <body>, dark mode: class="dvision dark"
+
+.dvision {
+  // ─── Primary ─────────────────────────────────────────────
+  --dvision-primary:            #1d6feb;
+  --dvision-primary-hover:      #1558c8;
+  --dvision-primary-subtle:     #dbeafe;
+  --dvision-primary-text:       #ffffff;
+
+  // ─── Secondary ───────────────────────────────────────────
+  --dvision-secondary:          #0694a2;
+  --dvision-secondary-hover:    #057a86;
+  --dvision-secondary-subtle:   #ccfbf1;
+  --dvision-secondary-text:     #ffffff;
+
+  // ─── Accent ──────────────────────────────────────────────
+  --dvision-accent:             #f5c518;
+  --dvision-accent-hover:       #d4aa10;
+  --dvision-accent-subtle:      #fef9c3;
+  --dvision-accent-text:        #1a1200;
+
+  // ─── Semantic ────────────────────────────────────────────
+  --dvision-success:            #16a34a;
+  --dvision-success-hover:      #15803d;
+  --dvision-success-subtle:     #dcfce7;
+  --dvision-success-text:       #ffffff;
+
+  --dvision-warning:            #d97706;
+  --dvision-warning-hover:      #b45309;
+  --dvision-warning-subtle:     #fef3c7;
+  --dvision-warning-text:       #ffffff;
+
+  --dvision-danger:             #dc2626;
+  --dvision-danger-hover:       #b91c1c;
+  --dvision-danger-subtle:      #fee2e2;
+  --dvision-danger-text:        #ffffff;
+
+  --dvision-info:               #0ea5e9;
+  --dvision-info-hover:         #0284c7;
+  --dvision-info-subtle:        #e0f2fe;
+  --dvision-info-text:          #ffffff;
+
+  // ─── Povrchy ─────────────────────────────────────────────
+  --dvision-surface:            #ffffff;
+  --dvision-surface-alt:        #f0f7ff;
+  --dvision-bg:                 #e8f4fd;
+
+  // ─── Text ────────────────────────────────────────────────
+  --dvision-text:               #0d1b2a;
+  --dvision-text-muted:         #3a5068;
+  --dvision-text-disabled:      #8aaabf;
+
+  // ─── Border ──────────────────────────────────────────────
+  --dvision-border:             #b8d4ea;
+
+  // ─── Stiny ───────────────────────────────────────────────
+  --dvision-shadow-sm:  0 1px 2px rgba(29, 111, 235, .06);
+  --dvision-shadow-md:  0 1px 3px rgba(29, 111, 235, .10), 0 2px 8px rgba(13, 27, 42, .08);
+  --dvision-shadow-lg:  0 4px 16px rgba(29, 111, 235, .14), 0 2px 4px rgba(13, 27, 42, .08);
+
+  // ─── Zaobleni ────────────────────────────────────────────
+  --dvision-radius-sm:   6px;
+  --dvision-radius-md:   12px;
+  --dvision-radius-lg:   20px;
+  --dvision-radius-full: 9999px;
+
+  // ─── Typografie ──────────────────────────────────────────
+  --dvision-font:        'Inter', 'Segoe UI', system-ui, sans-serif;
+  --dvision-font-mono:   'Fira Code', 'Cascadia Code', monospace;
+  --dvision-font-size:   16px;
+  --dvision-line-height: 1.5;
+
+  // ─── Spacing ─────────────────────────────────────────────
+  --dvision-space-xs:    4px;
+  --dvision-space-sm:    8px;
+  --dvision-space-md:    16px;
+  --dvision-space-lg:    24px;
+  --dvision-space-xl:    40px;
+  --dvision-space-2xl:   64px;
+}
+
+// ─── Dark mode ───────────────────────────────────────────────
+.dvision.dark {
+  --dvision-primary:            #60aff8;
+  --dvision-primary-hover:      #82c4fa;
+  --dvision-primary-subtle:     #0c2a4a;
+  --dvision-primary-text:       #002d6b;
+
+  --dvision-secondary:          #22d3de;
+  --dvision-secondary-hover:    #67e8f9;
+  --dvision-secondary-subtle:   #083344;
+  --dvision-secondary-text:     #003a40;
+
+  --dvision-accent:             #f5c518;
+  --dvision-accent-hover:       #fde047;
+  --dvision-accent-subtle:      #2d2200;
+  --dvision-accent-text:        #1a1200;
+
+  --dvision-success:            #4ade80;
+  --dvision-success-hover:      #86efac;
+  --dvision-success-subtle:     #052e16;
+  --dvision-success-text:       #052e16;
+
+  --dvision-warning:            #fbbf24;
+  --dvision-warning-hover:      #fcd34d;
+  --dvision-warning-subtle:     #2d1a00;
+  --dvision-warning-text:       #2d1a00;
+
+  --dvision-danger:             #f87171;
+  --dvision-danger-hover:       #fca5a5;
+  --dvision-danger-subtle:      #2d0a0a;
+  --dvision-danger-text:        #2d0a0a;
+
+  --dvision-info:               #38bdf8;
+  --dvision-info-hover:         #7dd3fc;
+  --dvision-info-subtle:        #0c2233;
+  --dvision-info-text:          #0c2233;
+
+  --dvision-surface:            #0f1c2e;
+  --dvision-surface-alt:        #162336;
+  --dvision-bg:                 #090f1a;
+
+  --dvision-text:               #dceeff;
+  --dvision-text-muted:         #7bafd4;
+  --dvision-text-disabled:      #3d5f7a;
+
+  --dvision-border:             #1e3a55;
+
+  --dvision-shadow-sm:  0 1px 2px rgba(0, 0, 0, .4);
+  --dvision-shadow-md:  0 1px 3px rgba(0, 0, 0, .5), 0 2px 8px rgba(0, 0, 0, .4);
+  --dvision-shadow-lg:  0 4px 16px rgba(0, 0, 0, .6), 0 2px 4px rgba(0, 0, 0, .4);
+}

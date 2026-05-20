@@ -1,0 +1,209 @@
+$aside-width: 340px;
+$breakpoint: 1100px;
+
+.doc-page {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.doc-page__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--dvision-border);
+}
+
+.doc-page__module {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--dvision-primary);
+}
+
+.doc-page__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dvision-text);
+  letter-spacing: -0.5px;
+  @media (max-width: 480px) { font-size: 1.5rem; }
+}
+
+.doc-page__desc {
+  font-size: 0.95rem;
+  color: var(--dvision-text-muted);
+  line-height: 1.65;
+  max-width: 560px;
+}
+
+// ─── Dva sloupce ──────────────────────────────────────────
+.doc-cols {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 40px;
+  align-items: start;
+  @media (max-width: $breakpoint) { grid-template-columns: 1fr; }
+}
+
+.doc-col--main {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  min-width: 0;
+}
+
+.doc-col--aside {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+
+  @media (max-width: $breakpoint) {
+    border-top: 1px solid var(--dvision-border);
+    padding-top: 40px;
+  }
+}
+
+// ─── Sekce ────────────────────────────────────────────────
+.doc-section { display: flex; flex-direction: column; gap: 16px; }
+
+.doc-section__title { font-size: 1.05rem; font-weight: 600; color: var(--dvision-text); }
+
+.doc-section__subtitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--dvision-text-disabled);
+}
+
+.doc-section__desc { font-size: 0.875rem; color: var(--dvision-text-muted); line-height: 1.65; }
+
+// ─── Variant switcher ─────────────────────────────────────
+.variant-switcher { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.variant-btn {
+  padding: 6px 16px;
+  border-radius: var(--dvision-radius-full);
+  border: 1px solid var(--dvision-border);
+  background: var(--dvision-surface);
+  color: var(--dvision-text-muted);
+  font-size: 0.82rem;
+  font-family: var(--dvision-font);
+  cursor: pointer;
+  transition: all 150ms ease;
+  &:hover { border-color: var(--dvision-primary); color: var(--dvision-primary); }
+  &.is-active { background: var(--dvision-primary); border-color: var(--dvision-primary); color: #fff; font-weight: 600; }
+}
+
+// ─── Preview box ──────────────────────────────────────────
+.preview-box {
+  border: 1px solid var(--dvision-border);
+  border-radius: var(--dvision-radius-md);
+  overflow: hidden;
+
+  &__canvas {
+    background: var(--dvision-surface-alt);
+    padding: 40px 32px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 240px;
+
+    &--row {
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 480px) { padding: 24px 16px; }
+  }
+
+  &__code {
+    border-top: 1px solid var(--dvision-border);
+    border-radius: 0;
+    margin: 0;
+    font-size: 0.8rem;
+    padding: 18px 22px;
+    line-height: 1.7;
+  }
+}
+
+.demo-card { width: 100%; max-width: 300px; }
+
+// ─── Example label ────────────────────────────────────────
+.example-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--dvision-text-disabled);
+  margin-bottom: -8px;
+}
+
+// ─── Card grid ────────────────────────────────────────────
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+// ─── BEM: demo obsah uvnitr karty ─────────────────────────
+.dv-demo {
+  &__eyebrow {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dvision-primary);
+    margin-bottom: 4px;
+  }
+  &__title { font-size: 0.95rem; font-weight: 600; color: var(--dvision-text); margin: 0; }
+  &__body { font-size: 0.85rem; color: var(--dvision-text-muted); line-height: 1.6; margin: 0; }
+
+  &__btn {
+    padding: 7px 16px;
+    border-radius: var(--dvision-radius-full);
+    font-size: 0.8rem;
+    font-family: var(--dvision-font);
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: opacity 150ms;
+    line-height: 1;
+    &:hover { opacity: 0.85; }
+    &--primary { background: var(--dvision-primary); color: var(--dvision-primary-text); }
+    &--ghost { background: transparent; color: var(--dvision-primary); border: 1px solid var(--dvision-border); }
+  }
+}
+
+// ─── API tabulka ──────────────────────────────────────────
+.api-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  table-layout: fixed;
+
+  th {
+    text-align: left;
+    padding: 9px 14px;
+    background: var(--dvision-surface-alt);
+    color: var(--dvision-text-disabled);
+    font-weight: 600;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    padding: 9px 14px;
+    border-top: 1px solid var(--dvision-border);
+    color: var(--dvision-text);
+    vertical-align: top;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  tr:hover td { background: var(--dvision-bg); }
+}
