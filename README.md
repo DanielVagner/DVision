@@ -1,5 +1,9 @@
 # DVision
 
+[![CI](https://github.com/DanielVagner/DVision/actions/workflows/ci.yml/badge.svg)](https://github.com/DanielVagner/DVision/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/@dvision/angular)](https://www.npmjs.com/package/@dvision/angular)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A modern, themeable component library for Angular — with React support on the roadmap.
 
 Built on CSS custom properties with a clean design language of its own. No Material, no Bootstrap — just a focused set of components that look good, stay consistent, and are easy to customize.
@@ -8,8 +12,8 @@ Built on CSS custom properties with a clean design language of its own. No Mater
 
 ## Packages
 
-| Package | Version | Description |
-|---|---|---|
+| Package            | Version                                               | Description                   |
+| ------------------ | ----------------------------------------------------- | ----------------------------- |
 | `@dvision/angular` | ![npm](https://img.shields.io/npm/v/@dvision/angular) | Angular standalone components |
 
 ---
@@ -56,7 +60,7 @@ In `index.html`, add `class="dvision"` to `<body>`:
 For **dark mode**, add the `dark` class:
 
 ```html
-<body class="dvision dark">
+<body class="dvision dark"></body>
 ```
 
 ---

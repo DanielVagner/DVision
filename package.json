@@ -3,12 +3,31 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "docs": "nx run docs:serve",
+    "docs": "nx run docs:serve --port=4200",
+    "docs:build": "nx run docs:build",
     "build:lib": "nx run angular:build",
     "build:all": "nx run-many -t build",
     "version:lib": "nx release version",
     "changelog": "nx release changelog",
-    "publish:lib": "nx run angular:build && nx release publish"
+    "publish:lib": "nx run angular:build && nx release publish",
+    "prepare": "husky",
+    "test": "nx run-many -t test",
+    "test:watch": "nx run angular:test --watch",
+    "lint": "nx run-many -t lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,html,scss,css,json}\" --ignore-path .gitignore",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,html,scss,css,json}\" --ignore-path .gitignore"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{html,scss,css}": [
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -66,9 +85,11 @@
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-playwright": "^1.6.2",
+    "husky": "^9.1.7",
     "jiti": "2.4.2",
     "jsdom": "~22.1.0",
     "jsonc-eslint-parser": "^2.1.0",
+    "lint-staged": "^16.4.0",
     "ng-packagr": "~21.2.0",
     "nx": "22.7.2",
     "postcss": "^8.4.5",

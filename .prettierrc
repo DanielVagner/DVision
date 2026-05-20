@@ -1,3 +1,25 @@
 {
-  "singleQuote": true
+  "singleQuote": true,
+  "semi": true,
+  "tabWidth": 2,
+  "printWidth": 100,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": ["*.html"],
+      "options": {
+        "printWidth": 120,
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    },
+    {
+      "files": ["*.scss", "*.css"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
 }

@@ -24,6 +24,12 @@ jobs:
 
       - run: npm ci
 
+      - name: Lint
+        run: npx nx run-many -t lint
+
+      - name: Test
+        run: npx nx run-many -t test
+
       - name: Build Angular library
         run: npx nx run angular:build
 
