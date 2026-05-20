@@ -26,6 +26,7 @@ Built on CSS custom properties with a clean design language of its own. No Mater
 - **Angular signals** — built for Angular 17+, `OnPush` by default
 - **Standalone components** — no `NgModule`, no boilerplate
 - **Zero hardcoded colors** — every color references a token
+- **Single import per component** — one constant covers all related directives
 
 ---
 
@@ -44,7 +45,7 @@ npm install @dvision/angular
 In your global `styles.scss`:
 
 ```scss
-@use '@dvision/angular/src/theme/dvision.theme';
+@use '@dvision/angular/theme/dvision.theme';
 ```
 
 ### 2. Apply the theme class
@@ -69,28 +70,55 @@ For **dark mode**, add the `dark` class:
 
 ### Card
 
+Import a single constant — no need to list every directive individually:
+
 ```typescript
-import {
-  DvCardComponent,
-  DvCardHeaderDirective,
-  DvCardFooterDirective,
-  DvCardMediaDirective
-} from '@dvision/angular';
+import { DV_CARD } from '@dvision/angular';
 
 @Component({
-  imports: [DvCardComponent, DvCardHeaderDirective, DvCardFooterDirective, DvCardMediaDirective],
+  imports: [DV_CARD],
   template: `
     <dv-card variant="elevated">
-      <img dvCardMedia src="..." alt="..." />
-      <div dvCardHeader>Card title</div>
+      <dv-card-header>
+        <h3>Card title</h3>
+      </dv-card-header>
+
       Card body content goes here.
-      <div dvCardFooter>Footer</div>
+
+      <dv-card-footer>
+        <button>Cancel</button>
+        <button>Confirm</button>
+      </dv-card-footer>
     </dv-card>
   `
 })
 ```
 
 **Variants:** `elevated` (default) · `filled` · `outlined`
+
+**Slots:**
+
+| Element            | Attribute alternative | Description                          |
+| ------------------ | --------------------- | ------------------------------------ |
+| `<dv-card-media>`  | `dvCardMedia`         | Image or video — always flush to top |
+| `<dv-card-header>` | `dvCardHeader`        | Header section below media           |
+| `<dv-card-footer>` | `dvCardFooter`        | Footer with actions                  |
+
+Both syntaxes work — element form is recommended:
+
+```html
+<!-- Element syntax (recommended) -->
+<dv-card>
+  <dv-card-header><h3>Title</h3></dv-card-header>
+  Body content
+</dv-card>
+
+<!-- Attribute syntax (also supported) -->
+<dv-card>
+  <div dvCardHeader><h3>Title</h3></div>
+  Body content
+</dv-card>
+```
 
 ---
 
@@ -138,6 +166,12 @@ npm run build:lib
 
 # Build everything
 npm run build:all
+
+# Run tests
+npm test
+
+# Lint
+npm run lint
 ```
 
 ---
@@ -147,6 +181,8 @@ npm run build:all
 - [x] Card component
 - [x] Design tokens + theming
 - [x] Light / dark mode
+- [x] Single import constant (`DV_CARD`)
+- [x] Element slot syntax (`<dv-card-header>`)
 - [ ] Button
 - [ ] Input
 - [ ] Badge
