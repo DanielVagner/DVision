@@ -54,19 +54,11 @@ $breakpoint: 1100px;
 }
 
 .doc-col--aside {
-  position: sticky;
-  top: 24px;
   display: flex;
   flex-direction: column;
   gap: 36px;
-  max-height: calc(100vh - 48px);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--dvision-border) transparent;
 
   @media (max-width: $breakpoint) {
-    position: static;
-    max-height: none;
     border-top: 1px solid var(--dvision-border);
     padding-top: 40px;
   }
@@ -133,25 +125,21 @@ $breakpoint: 1100px;
   &__token {
     font-size: 0.58rem;
     font-family: var(--dvision-font-mono);
-    color: rgba(255, 255, 255, 0.75);
+    opacity: 0.85;
     line-height: 1.2;
     word-break: break-all;
   }
 
   &__name {
     font-size: 0.65rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
+    font-weight: 700;
+    opacity: 0.7;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
-  // Subtle varianta — tmavsi text pro svetle pozadi
   &--subtle {
-    .swatch__token,
-    .swatch__name {
-      color: rgba(0, 0, 0, 0.45);
-    }
+    color: var(--dvision-text);
   }
 }
 

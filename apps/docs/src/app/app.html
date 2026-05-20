@@ -65,10 +65,19 @@
     </div>
 
     <nav class="docs-sidebar__nav">
+      <a
+        routerLink="/"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="docs-sidebar__home"
+      >
+        Uvod
+      </a>
+
       <p class="docs-sidebar__label">Foundation</p>
       <a routerLink="/theming" routerLinkActive="is-active">Theming</a>
 
-      <p class="docs-sidebar__label" style="margin-top: 16px">Components</p>
+      <p class="docs-sidebar__label">Components</p>
       <a routerLink="/components/card" routerLinkActive="is-active">Card</a>
     </nav>
   </aside>

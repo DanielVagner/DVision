@@ -1,0 +1,108 @@
+<div class="home">
+  <!-- ─── Hero ──────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero__badge">Component Library</div>
+    <h1 class="hero__title">
+      <span class="hero__title-dv">DV</span>
+      ision
+    </h1>
+    <p class="hero__desc">
+      Moderní, tématovatelná knihovna komponent pro Angular. Postavená na CSS custom properties s vlastním design
+      jazykem — žádný Material, žádný Bootstrap.
+    </p>
+    <div class="hero__actions">
+      <a routerLink="/components/card" class="hero__btn hero__btn--primary">Prohlédnout komponenty</a>
+      <a routerLink="/theming" class="hero__btn hero__btn--ghost">Design tokeny</a>
+    </div>
+    <div class="hero__meta">
+      <span class="hero__chip">Angular 17+</span>
+      <span class="hero__chip">Standalone</span>
+      <span class="hero__chip">Signals</span>
+      <span class="hero__chip">MIT</span>
+    </div>
+  </section>
+
+  <!-- ─── Instalace ─────────────────────────────────────── -->
+  <section class="install">
+    <h2 class="install__title">Rychly start</h2>
+    <div class="install__steps">
+      <div class="install__step">
+        <span class="install__step-num">1</span>
+        <div>
+          <p class="install__step-label">Instalace</p>
+          <pre class="install__code"><code>npm install @dvision/angular</code></pre>
+        </div>
+      </div>
+      <div class="install__step">
+        <span class="install__step-num">2</span>
+        <div>
+          <p class="install__step-label">Import tématu</p>
+          <pre class="install__code"><code>// styles.scss
+@use '@dvision/angular/theme/dvision.theme';</code></pre>
+        </div>
+      </div>
+      <div class="install__step">
+        <span class="install__step-num">3</span>
+        <div>
+          <p class="install__step-label">Aktivace na body</p>
+          <pre class="install__code"><code>&lt;body class="dvision"&gt;
+  &lt;app-root /&gt;
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      <div class="install__step">
+        <span class="install__step-num">4</span>
+        <div>
+          <p class="install__step-label">Použití komponenty</p>
+          <pre class="install__code"><code>import &#123; DvCardComponent &#125; from '@dvision/angular';
+
+&lt;dv-card variant="elevated"&gt;
+  &lt;div dvCardHeader&gt;Nadpis&lt;/div&gt;
+  Obsah karty
+&lt;/dv-card&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Features ──────────────────────────────────────── -->
+  <section class="features">
+    <h2 class="features__title">Proč DVision?</h2>
+    <div class="features__grid">
+      @for (f of features; track f.title) {
+      <div class="feature-card">
+        <span class="feature-card__icon">{{ f.icon }}</span>
+        <h3 class="feature-card__title">{{ f.title }}</h3>
+        <p class="feature-card__desc">{{ f.desc }}</p>
+      </div>
+      }
+    </div>
+  </section>
+
+  <!-- ─── Komponenty ────────────────────────────────────── -->
+  <section class="components">
+    <h2 class="components__title">Komponenty</h2>
+    <div class="components__grid">
+      <a routerLink="/components/card" class="component-item">
+        <span class="component-item__status component-item__status--done">Hotovo</span>
+        <h3 class="component-item__name">Card</h3>
+        <p class="component-item__desc">Obsahový kontejner s media, hlavičkou a patičkou.</p>
+      </a>
+      <div class="component-item component-item--soon">
+        <span class="component-item__status component-item__status--soon">Brzy</span>
+        <h3 class="component-item__name">Button</h3>
+        <p class="component-item__desc">Primární, sekundární, ghost a danger varianty.</p>
+      </div>
+      <div class="component-item component-item--soon">
+        <span class="component-item__status component-item__status--soon">Brzy</span>
+        <h3 class="component-item__name">Input</h3>
+        <p class="component-item__desc">Textové pole s validací a stavovými ikonami.</p>
+      </div>
+      <div class="component-item component-item--soon">
+        <span class="component-item__status component-item__status--soon">Brzy</span>
+        <h3 class="component-item__name">Badge</h3>
+        <p class="component-item__desc">Malý štítek pro stav, kategorie nebo počty.</p>
+      </div>
+    </div>
+  </section>
+</div>

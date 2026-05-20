@@ -1,4 +1,4 @@
 import { Directive } from '@angular/core';
 
-@Directive({ selector: '[dvCardMedia]', standalone: true })
+@Directive({ selector: '[dvCardMedia], dv-card-media', standalone: true })
 export class DvCardMediaDirective {}

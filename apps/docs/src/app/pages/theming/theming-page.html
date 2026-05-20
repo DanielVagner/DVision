@@ -41,17 +41,25 @@
           <div class="color-row">
             <span class="color-row__label">{{ group.label }}</span>
             <div class="color-row__swatches">
-              <div class="swatch" [style.background]="'var(' + group.base + ')'">
+              <div
+                class="swatch"
+                [style.background]="'var(' + group.base + ')'"
+                [style.color]="'var(' + group.text + ')'"
+              >
                 <span class="swatch__token">{{ group.base }}</span>
-                <span class="swatch__name">base</span>
+                <span class="swatch__name">BASE</span>
               </div>
-              <div class="swatch" [style.background]="'var(' + group.hover + ')'">
+              <div
+                class="swatch"
+                [style.background]="'var(' + group.hover + ')'"
+                [style.color]="'var(' + group.text + ')'"
+              >
                 <span class="swatch__token">{{ group.hover }}</span>
-                <span class="swatch__name">hover</span>
+                <span class="swatch__name">HOVER</span>
               </div>
               <div class="swatch swatch--subtle" [style.background]="'var(' + group.subtle + ')'">
                 <span class="swatch__token">{{ group.subtle }}</span>
-                <span class="swatch__name">subtle</span>
+                <span class="swatch__name">SUBTLE</span>
               </div>
             </div>
           </div>

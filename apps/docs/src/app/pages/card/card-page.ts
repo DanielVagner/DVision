@@ -1,17 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {
-  DvCardComponent,
-  DvCardFooterDirective,
-  DvCardHeaderDirective,
-  DvCardMediaDirective,
-  DvCardVariant,
-} from '@dvision/angular';
+import { DV_CARD, DvCardVariant } from '@dvision/angular';
 
 @Component({
   selector: 'docs-card-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [DvCardComponent, DvCardHeaderDirective, DvCardFooterDirective, DvCardMediaDirective],
+  imports: [DV_CARD],
   templateUrl: './card-page.html',
   styleUrl: './card-page.scss',
 })
